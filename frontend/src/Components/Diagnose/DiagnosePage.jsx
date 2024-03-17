@@ -1,5 +1,5 @@
 import Navbar from "../Navbar";
-import { useState } from "react";
+import React, { useState } from "react";
 import Stage1 from "./Stage1";
 import Stage2 from "./Stage2";
 import Stage3 from "./Stage3";
@@ -7,7 +7,7 @@ import Stage4 from "./Stage4";
 import arrow from "../../assets/arrow.svg";
 
 const DiagnosePage = () => {
-  const [stage, setStage] = useState(2);
+  const [stage, setStage] = useState(1);
   const [formData, setFormData] = useState({
     fullName: "",
     gender: "",
