@@ -15,7 +15,7 @@ const DiagnosePage = () => {
     height: "",
     weight: "",
     healthQuestions: [],
-    symptoms: [],
+    symptom_list: [],
   });
 
   const handleNext = () => {
@@ -30,7 +30,6 @@ const DiagnosePage = () => {
     setFormData({ ...formData, ...newData });
   };
 
-
   return (
     <div>
       <div className="bg-blue-800">
@@ -41,36 +40,112 @@ const DiagnosePage = () => {
           </div>
         </div>
       </div>
-      <div>
-        <div>Personal Information</div>
-        <img src={arrow} alt="->" />
-      </div>
+
       {stage}
       {stage === 1 && (
-        <Stage1
-          formData={formData}
-          onFormDataChange={handleFormDataChange}
-          onNext={handleNext}
-        />
+        <>
+          <div className="flex w-full justify-between mt-6 px-40">
+            <div className="cursor-pointer px-6 py-2 bg-blue-800 rounded-md text-lg text-white justify-center items-center">
+              Personal Information
+            </div>
+            <img src={arrow} alt="->" />
+            <div className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center">
+              Questionnaire
+            </div>
+            <img src={arrow} alt="->" />
+            <div className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center">
+              Symptoms Selection
+            </div>
+            <img src={arrow} alt="->" />
+            <div className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center">
+              Get your Report
+            </div>
+          </div>
+          <Stage1
+            formData={formData}
+            onFormDataChange={handleFormDataChange}
+            onNext={handleNext}
+          />
+        </>
       )}
       {stage === 2 && (
-        <Stage2
-          formData={formData}
-          onFormDataChange={handleFormDataChange}
-          onNext={handleNext}
-          onPrevious={handlePrevious}
-        />
+        <>
+          <div className="flex w-full justify-between mt-6 px-40">
+            <div className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center">
+              Personal Information
+            </div>
+            <img src={arrow} alt="->" />
+            <div className="cursor-pointer px-6 py-2 bg-blue-800 rounded-md text-lg text-white justify-center items-center">
+              Questionnaire
+            </div>
+            <img src={arrow} alt="->" />
+            <div className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center">
+              Symptoms Selection
+            </div>
+            <img src={arrow} alt="->" />
+            <div className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center">
+              Get your Report
+            </div>
+          </div>
+          <Stage2
+            formData={formData}
+            onFormDataChange={handleFormDataChange}
+            onNext={handleNext}
+            onPrevious={handlePrevious}
+          />
+        </>
       )}
       {stage === 3 && (
-        <Stage3
-          formData={formData}
-          onFormDataChange={handleFormDataChange}
-          onNext={handleNext}
-          onPrevious={handlePrevious}
-        />
+        <>
+          <div className="flex w-full justify-between mt-6 px-40">
+            <div className="cursor-pointer px-6 py-2 opacity-50 text-lg bg-white rounded-lg border border-black justify-center items-center">
+              Personal Information
+            </div>
+            <img src={arrow} alt="->" />
+            <div className="cursor-pointer px-6 py-2 opacity-50 text-lg bg-white rounded-lg border border-black justify-center items-center">
+              Questionnaire
+            </div>
+            <img src={arrow} alt="->" />
+            <div className="cursor-pointer px-6 py-2 bg-blue-800 rounded-md text-lg text-white justify-center items-center">
+              Symptoms Selection
+            </div>
+
+            <img src={arrow} alt="->" />
+            <div className="cursor-pointer px-6 py-2 opacity-50 text-lg bg-white rounded-lg border border-black justify-center items-center">
+              Get your Report
+            </div>
+          </div>
+          <Stage3
+            formData={formData}
+            onFormDataChange={handleFormDataChange}
+            onNext={handleNext}
+            onPrevious={handlePrevious}
+          />
+        </>
       )}
       {stage === 4 && (
-        <Stage4 formData={formData} onPrevious={handlePrevious} />
+        <>
+          <div className="flex w-full justify-between mt-6 px-40">
+            <div className="cursor-pointer px-6 py-2 opacity-50 text-lg bg-white rounded-lg border border-black justify-center items-center">
+              Personal Information
+            </div>
+            <img src={arrow} alt="->" />
+            <div className="cursor-pointer px-6 py-2 opacity-50 text-lg bg-white rounded-lg border border-black justify-center items-center">
+              Questionnaire
+            </div>
+            <img src={arrow} alt="->" />
+            <div className="cursor-pointer px-6 py-2 opacity-50 text-lg bg-white rounded-lg border border-black justify-center items-center">
+              Symptoms Selection
+            </div>
+
+            <img src={arrow} alt="->" />
+           
+            <div className="cursor-pointer px-6 py-2 bg-blue-800 rounded-md text-lg text-white justify-center items-center">
+            Get your Report
+            </div>
+          </div>
+          <Stage4 formData={formData} onPrevious={handlePrevious} />
+        </>
       )}
     </div>
   );
