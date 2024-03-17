@@ -8,6 +8,7 @@ import Footer from './Components/Footer';
 import Landing from './Components/Landing';
 import DiagnosePage from './Components/Diagnose/DiagnosePage';
 import Error from './Components/Error';
+import Home from './Components/Home';
 
 const AppLayout = () => {
   return (
@@ -27,7 +28,7 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Landing />,
+        element: <Home />,
         errorElement: <Error />,
       },
       {
