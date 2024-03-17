@@ -7,7 +7,7 @@ import Stage4 from "./Stage4";
 import arrow from "../../assets/arrow.svg";
 
 const DiagnosePage = () => {
-  const [stage, setStage] = useState(2);
+  const [stage, setStage] = useState(1);
   const [formData, setFormData] = useState({
     fullName: "",
     gender: "",
