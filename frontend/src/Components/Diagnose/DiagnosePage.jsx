@@ -33,8 +33,8 @@ const DiagnosePage = () => {
   return (
     <div>
       <div className="bg-blue-800">
-        <Navbar />
-        <div className="flex justify-between mt-10 pb-8">
+        {/* <Navbar /> */}
+        <div className="flex justify-between pt-10 pb-8">
           <div class="text-white text-4xl font-bold leading-normal poppins px-20">
             Fill your basic details
           </div>

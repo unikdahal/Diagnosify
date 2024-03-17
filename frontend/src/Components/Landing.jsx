@@ -3,8 +3,8 @@ import img from "../assets/landing.png";
 const Landing = () => {
   return (
     <div className="bg-blue-800">
-      <Navbar />
-      <div className="flex justify-between mt-10 pb-28">
+      {/* <Navbar /> */}
+      <div className="flex justify-between pt-10 pb-28">
         <div>
           <div className="flex flex-col gap-8 px-20">
             <div class="text-orange-200 text-6xl font-bold leading-normal poppins">
@@ -30,7 +30,7 @@ const Landing = () => {
       <button className="bg-red-600 text-white px-10 py-4 rounded-full font-bold border-white border-4 text-xl">Try Diagnosify Now!</button>
       </div>
 
-
+    
     </div>
   );
 };
