@@ -1,5 +1,6 @@
 import Symptom from "../models/symptoms.model.js";
 import fetch from "node-fetch";
+import Disease from "../models/disease.model.js";
 
 const getAllSymptoms = async (req, res) => {
   try {
@@ -11,26 +12,35 @@ const getAllSymptoms = async (req, res) => {
 };
 
 const predictDisease = async (req, res) => {
-  const symptom = req.body;
-  const symptoms = JSON.stringify(symptom);
-  console.log(symptoms);
-  const url = "http://localhost:8000/predict_disease";
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: symptoms,
-  };
-  fetch(url, options)
-    .then((response) => response.json())
-    .then((data) => {
-      res.status(200).json(data);
-      console.log(data);
-    })
-    .catch((error) => {
-      res.status(404).json({ message: error.message });
-    });
+  try {
+    const symptom = req.body;
+    console.log("Symptom:", symptom);
+
+    const symptoms = JSON.stringify(symptom);
+    console.log("Symptoms JSON:", symptoms);
+
+    const url = "http://localhost:8000/predict_disease";
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: symptoms,
+    };
+    const response = await fetch(url, options);
+    const data = await response.json();
+    console.log("API Response:", data);
+
+    const { disease_names } = data;
+    const disease = await Disease.find({ Disease: disease_names });
+    console.log("Retrieved Disease:", disease);
+    const { Prevention } = disease[0];
+
+    res.status(200).json({ disease_names, Prevention });
+  } catch (error) {
+    console.error("Error:", error.message);
+    res.status(404).json({ message: error.message });
+  }
 };
 
 export { getAllSymptoms, predictDisease };

@@ -2,24 +2,12 @@ import { Schema, model } from "mongoose";
 
 const diseaseSchema = new Schema(
   {
-    index: {
-      type: Number,
-      required: true,
-      trim: true,
-    },
-    disease: {
+    Disease: {
       type: String,
       required: true,
       trim: true,
     },
-    symptoms: [
-      {
-        type: String,
-        required: true,
-        trim: true,
-      },
-    ],
-    prevention: [
+    Prevention: [
       {
         type: String,
         required: true,
