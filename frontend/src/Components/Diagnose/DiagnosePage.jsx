@@ -1,5 +1,5 @@
 import Navbar from "../Navbar";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Stage1 from "./Stage1";
 import Stage2 from "./Stage2";
 import Stage3 from "./Stage3";
@@ -14,7 +14,6 @@ const DiagnosePage = () => {
     age: "",
     height: "",
     weight: "",
-    healthQuestions: [],
     symptom_list: [],
   });
 

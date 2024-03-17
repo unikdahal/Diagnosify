@@ -9,7 +9,7 @@ function Stage1({ formData, onFormDataChange, onNext }) {
   return (
     <div>
       <h2>Personal Details</h2>
-      <form>
+      <form onSubmit={(e)=>{e.preventDefault()}} >
         <label>
           Full Name:
           <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} />
