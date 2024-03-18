@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function Stage3({ formData, onFormDataChange, onNext, onPrevious }) {
+function Stage3({ formData, onFormDataChange, onNext, onPrevious, setFormData }) {
   const [symptoms, setSymptoms] = useState([]);
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -8,6 +8,12 @@ function Stage3({ formData, onFormDataChange, onNext, onPrevious }) {
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(()=>{
+    setFormData((prevFormData) => ({
+      ...prevFormData,selectedSymptoms
+    }));
+  },[selectedSymptoms]);
 
   const fetchData = async () => {
     try {
@@ -33,6 +39,8 @@ function Stage3({ formData, onFormDataChange, onNext, onPrevious }) {
   const filteredSymptoms = symptoms.filter(symptom =>
     symptom.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  
 
   return (
     <div>

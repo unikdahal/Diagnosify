@@ -71,9 +71,8 @@ const DiagnosePage = () => {
   };
 
   return (
-    <div>
+    <div className="bg-sky-100">
       <div className="bg-blue-800">
-        {/* <Navbar /> */}
         <div className="flex justify-between pt-10 pb-8">
           <div className="text-white text-4xl font-bold leading-normal poppins px-20">
             Fill your basic details
@@ -81,7 +80,6 @@ const DiagnosePage = () => {
         </div>
       </div>
 
-      {formData.symptom_list}
       {stage === 1 && (
         <>
           <div className="flex w-full justify-between mt-6 px-40">
@@ -193,6 +191,7 @@ const DiagnosePage = () => {
             </div>
           </div>
           <Stage3
+            setFormData={setFormData}
             formData={formData}
             onFormDataChange={handleFormDataChange}
             onNext={handleNext}
