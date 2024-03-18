@@ -26,20 +26,6 @@ const DiagnosePage = () => {
     dizzy: false
   });
 
-  // const handleSymptomSelection = (symptom, isSelected) => {
-  //   if (!answeredQuestions[symptom]) {
-  //     setFormData(prevFormData => ({
-  //       ...prevFormData,
-  //       symptom_list: isSelected
-  //         ? [...prevFormData.symptom_list, symptom]
-  //         : prevFormData.symptom_list.filter(item => item !== symptom)
-  //     }));
-  //     setAnsweredQuestions(prevState => ({
-  //       ...prevState,
-  //       [symptom]: true
-  //     }));
-  //   }
-  // };
   const handleSymptomSelection = (symptom, status) => {
     if (status) {
       if (!formData.symptom_list.includes(symptom)) {
@@ -76,7 +62,7 @@ const DiagnosePage = () => {
       <div className="bg-blue-800">
         {/* <Navbar /> */}
         <div className="flex justify-between pt-10 pb-8">
-          <div class="text-white text-4xl font-bold leading-normal poppins px-20">
+          <div className="text-white text-4xl font-bold leading-normal poppins px-20">
             Fill your basic details
           </div>
         </div>
