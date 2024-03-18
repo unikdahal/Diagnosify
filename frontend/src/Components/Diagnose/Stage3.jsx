@@ -13,23 +13,30 @@ function Stage3({ formData, onFormDataChange, onNext, onPrevious }) {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://diagnosify-backend.vercel.app/api/v1/symptoms/getSymptoms"
-    );
+    try {
+      const data = await fetch(
+        "http://localhost:9000/api/v1/symptoms/getSymptoms"
+      );
 
-    const res = await data.json();
-    const res1 = res[0].symptom;
-    console.log(res1);
-    setSymptoms(res1);
+      if (!data.ok) {
+        throw new Error(`HTTP error! Status: ${data.status}`);
+      }
+
+      const res = await data.json();
+      const res1 = res[0].symptom;
+      console.log(res1);
+      setSymptoms(res1);
+    } catch (error) {
+      console.error("Error fetching data:", error.message);
+    }
   };
   if (symptoms == null) {
     return <div></div>;
   }
 
-
   const handleSymptomClick = (symptom) => {
     if (selectedSymptoms.includes(symptom)) {
-      setSelectedSymptoms(selectedSymptoms.filter(item => item !== symptom));
+      setSelectedSymptoms(selectedSymptoms.filter((item) => item !== symptom));
     } else {
       setSelectedSymptoms([...selectedSymptoms, symptom]);
     }
@@ -42,22 +49,32 @@ function Stage3({ formData, onFormDataChange, onNext, onPrevious }) {
         <label>
           Choose Symptoms:
           <div className="flex flex-wrap gap-2 h-40 overflow-scroll overflow-x-hidden p-2 m-10">
-          {symptoms.map((symptom, index) => (
-            <div className="p-2 bg-gray-300 w-fit rounded" key={index} onClick={() => handleSymptomClick(symptom)} style={{ cursor: 'pointer' }}>
-              {symptom}
-            </div>
-          ))}
+            {symptoms.map((symptom, index) => (
+              <div
+                className="p-2 bg-gray-300 w-fit rounded"
+                key={index}
+                onClick={() => handleSymptomClick(symptom)}
+                style={{ cursor: "pointer" }}
+              >
+                {symptom}
+              </div>
+            ))}
           </div>
         </label>
         <br />
         <div>
           Selected Symptoms:
-          
           <div className="flex flex-wrap gap-2 h-40 overflow-scroll overflow-x-hidden p-2 m-10">
             {selectedSymptoms.map((symptom, index) => (
-              <div className="p-2 bg-gray-300 w-fit h-fit rounded cursor-pointer" key={index} onClick={() => handleSymptomClick(symptom)}>{symptom}</div>
+              <div
+                className="p-2 bg-gray-300 w-fit h-fit rounded cursor-pointer"
+                key={index}
+                onClick={() => handleSymptomClick(symptom)}
+              >
+                {symptom}
+              </div>
             ))}
-       </div>
+          </div>
         </div>
         <button type="button" onClick={onPrevious}>
           Previous
