@@ -14,7 +14,7 @@ function Stage2({
   };
 
   return (
-    <div>
+    <div id="stage2">
       <h2>Stage 2 Details</h2>
       <form className="px-20"
         onSubmit={(e) => {
