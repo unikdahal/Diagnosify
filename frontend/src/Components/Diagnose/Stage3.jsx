@@ -76,12 +76,7 @@ function Stage3({ formData, onFormDataChange, onNext, onPrevious }) {
             ))}
           </div>
         </div>
-        <button type="button" onClick={onPrevious}>
-          Previous
-        </button>
-        <button type="button" onClick={onNext}>
-          Next
-        </button>
+        
       </form>
 
       <div className="flex gap-20 px-20">
