@@ -1,1 +1,1 @@
-# Diagnosify
+# Diagnosify - Disease Predictor Website
