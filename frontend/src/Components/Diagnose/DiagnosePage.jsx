@@ -39,6 +39,8 @@ const DiagnosePage = () => {
   //     }));
   //   }
   // };
+
+  {console.log(formData.symptom_list)}
   const handleSymptomSelection = (symptom, status) => {
     if (status) {
       if (!formData.symptom_list.includes(symptom)) {
