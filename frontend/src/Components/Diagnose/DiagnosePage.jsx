@@ -17,6 +17,41 @@ const DiagnosePage = () => {
     symptom_list: [],
   });
 
+  const [answeredQuestions, setAnsweredQuestions] = useState({
+    headache: false,
+    fever: false,
+    fatigue: false,
+    abdominalPain: false,
+    dizzy: false
+  });
+
+  // const handleSymptomSelection = (symptom, isSelected) => {
+  //   if (!answeredQuestions[symptom]) {
+  //     setFormData(prevFormData => ({
+  //       ...prevFormData,
+  //       symptom_list: isSelected
+  //         ? [...prevFormData.symptom_list, symptom]
+  //         : prevFormData.symptom_list.filter(item => item !== symptom)
+  //     }));
+  //     setAnsweredQuestions(prevState => ({
+  //       ...prevState,
+  //       [symptom]: true
+  //     }));
+  //   }
+  // };
+  
+  const handleSymptomSelection = (symptom, status) => {
+    if (status) {
+      if (!formData.symptom_list.includes(symptom)) {
+        setFormData(prevFormData=>({...prevFormData.symptom_list, symptom}));
+      }
+    }
+    else{
+      if (formData.symptom_list.includes(symptom)) {
+        setFormData(prevFormData=>({...prevFormData.symptom_list.filter(item => item !== symptom)}));
+      }
+    }
+  };
   const handleNext = () => {
     setStage(stage + 1);
   };
@@ -40,7 +75,7 @@ const DiagnosePage = () => {
         </div>
       </div>
 
-      {stage}
+      {formData.symptom_list}
       {stage === 1 && (
         <>
           <div className="flex w-full justify-between mt-6 px-40">
@@ -87,6 +122,8 @@ const DiagnosePage = () => {
             </div>
           </div>
           <Stage2
+            answeredQuestions={answeredQuestions}
+            click={handleSymptomSelection}
             formData={formData}
             onFormDataChange={handleFormDataChange}
             onNext={handleNext}
@@ -138,9 +175,9 @@ const DiagnosePage = () => {
             </div>
 
             <img src={arrow} alt="->" />
-           
+
             <div className="cursor-pointer px-6 py-2 bg-blue-800 rounded-md text-lg text-white justify-center items-center">
-            Get your Report
+              Get your Report
             </div>
           </div>
           <Stage4 formData={formData} onPrevious={handlePrevious} />
