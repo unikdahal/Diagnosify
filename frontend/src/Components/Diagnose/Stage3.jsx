@@ -66,6 +66,23 @@ function Stage3({ formData, onFormDataChange, onNext, onPrevious }) {
           Next
         </button>
       </form>
+
+      <div className="flex gap-20 px-20">
+        <button
+          className="mt-4 mb-8 border-2 border-red-600 text-lg text-red-600 font-bold px-10 py-2 rounded-md hover:bg-red-600 hover:text-white"
+          type="button"
+          onClick={onPrevious}
+        >
+          Previous
+        </button>
+        <button
+          className="mt-4 mb-8 border-2 border-red-600 text-lg text-red-600 font-bold px-10 py-2 rounded-md hover:bg-red-600 hover:text-white"
+          type="button"
+          onClick={onNext}
+        >
+          Get Report Now!
+        </button>
+      </div>
     </div>
   );
 }
