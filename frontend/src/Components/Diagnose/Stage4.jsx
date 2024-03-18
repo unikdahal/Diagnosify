@@ -4,7 +4,8 @@ function Stage4({ formData, onPrevious }) {
   const [disease, setDisease] = useState(null);
   const [prevention, setPrevention] = useState([]);
   useEffect(() => {
-    const { symptom_list } = formData;
+    let { symptom_list, question_list } = formData;
+    symptom_list = symptom_list.concat(question_list);
     const reqJson = JSON.stringify({ symptom_list });
     console.log(reqJson);
     fetchData(reqJson);

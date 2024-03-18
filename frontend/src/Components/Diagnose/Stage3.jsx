@@ -17,14 +17,16 @@ function Stage3({
 
   useEffect(() => {
     setFormData((prevFormData) => {
-      const updatedSymptomList = [...prevFormData.symptom_list];
+      const updatedSymptomList = [];
 
-      // Add elements from selectedSymptoms that are not already present in symptom_list
+      // put only the symptoms in the selected symptoms in updatedSymptomList
       selectedSymptoms.forEach((symptom) => {
         if (!updatedSymptomList.includes(symptom)) {
           updatedSymptomList.push(symptom);
         }
       });
+
+      // Remove elements from symptom_list that are not present in selectedSymptoms
 
       return {
         ...prevFormData,

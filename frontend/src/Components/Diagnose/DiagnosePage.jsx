@@ -14,7 +14,8 @@ const DiagnosePage = () => {
     age: "",
     height: "",
     weight: "",
-    symptom_list: [],
+    question_list: [],
+    symptom_list: [], // Add elements from selectedSymptoms that are not already present in
   });
 
   const [answeredQuestions, setAnsweredQuestions] = useState({
@@ -27,17 +28,17 @@ const DiagnosePage = () => {
 
   const handleSymptomSelection = (symptom, status) => {
     if (status) {
-      if (!formData.symptom_list.includes(symptom)) {
+      if (!formData.question_list.includes(symptom)) {
         setFormData((prevFormData) => ({
           ...prevFormData,
-          symptom_list: [...prevFormData.symptom_list, symptom],
+          question_list: [...prevFormData.question_list, symptom],
         }));
       }
     } else {
-      if (formData.symptom_list.includes(symptom)) {
+      if (formData.question_list.includes(symptom)) {
         setFormData((prevFormData) => ({
           ...prevFormData,
-          symptom_list: prevFormData.symptom_list.filter(
+          question_list: prevFormData.question_list.filter(
             (item) => item !== symptom
           ),
         }));

@@ -15,7 +15,8 @@ function Stage2({
 
   return (
     <div id="stage2">
-      <form className="px-20"
+      <form
+        className="px-20"
         onSubmit={(e) => {
           e.preventDefault();
         }}
@@ -30,7 +31,10 @@ function Stage2({
                 <div
                   className={`px-4 py-2 text-white rounded-md cursor-pointer bg-gray-400 ${
                     answeredQuestions.headache && "opacity-50"
-                  } ${formData.symptom_list.includes("Headache") && "!bg-green-500"}`}
+                  } ${
+                    formData.question_list.includes("Headache") &&
+                    "!bg-green-500"
+                  }`}
                   onClick={() => click("Headache", true)}
                 >
                   Yes
@@ -38,7 +42,10 @@ function Stage2({
                 <div
                   className={`px-4 py-2 bg-gray-400 text-white rounded-md cursor-pointer ${
                     answeredQuestions.headache && "opacity-50"
-                  } ${!formData.symptom_list.includes("Headache") && "!bg-red-500"}`}
+                  } ${
+                    !formData.question_list.includes("Headache") &&
+                    "!bg-red-500"
+                  }`}
                   onClick={() => click("Headache", false)}
                 >
                   No
@@ -55,8 +62,10 @@ function Stage2({
               <div className="flex space-x-4">
                 <div
                   className={`px-4 py-2 bg-gray-400 text-white rounded-md cursor-pointer ${
-                    answeredQuestions.fever && "opacity-50" 
-                  } ${formData.symptom_list.includes("Fever") && "!bg-green-500"}`}
+                    answeredQuestions.fever && "opacity-50"
+                  } ${
+                    formData.question_list.includes("Fever") && "!bg-green-500"
+                  }`}
                   onClick={() => click("Fever", true)}
                 >
                   Yes
@@ -64,7 +73,9 @@ function Stage2({
                 <div
                   className={`px-4 py-2 bg-gray-400 text-white rounded-md cursor-pointer ${
                     answeredQuestions.fever && "opacity-50"
-                  } ${!formData.symptom_list.includes("Fever") && "!bg-red-500"}`}
+                  } ${
+                    !formData.question_list.includes("Fever") && "!bg-red-500"
+                  }`}
                   onClick={() => click("Fever", false)}
                 >
                   No
@@ -82,7 +93,10 @@ function Stage2({
                 <div
                   className={`px-4 py-2 bg-gray-400 text-white rounded-md cursor-pointer ${
                     answeredQuestions.fatigue && "opacity-50"
-                  } ${formData.symptom_list.includes("Fatigue") && "!bg-green-500"}`}
+                  } ${
+                    formData.question_list.includes("Fatigue") &&
+                    "!bg-green-500"
+                  }`}
                   onClick={() => click("Fatigue", true)}
                 >
                   Yes
@@ -90,7 +104,9 @@ function Stage2({
                 <div
                   className={`px-4 py-2 bg-gray-400 text-white rounded-md cursor-pointer ${
                     answeredQuestions.fatigue && "opacity-50"
-                  } ${!formData.symptom_list.includes("Fatigue") && "!bg-red-500"}`}
+                  } ${
+                    !formData.question_list.includes("Fatigue") && "!bg-red-500"
+                  }`}
                   onClick={() => click("Fatigue", false)}
                 >
                   No
@@ -108,7 +124,10 @@ function Stage2({
                 <div
                   className={`px-4 py-2 bg-gray-400 text-white rounded-md cursor-pointer ${
                     answeredQuestions.abdominalPain && "opacity-50"
-                  } ${formData.symptom_list.includes("Sharp abdominal pain") && "!bg-green-500"}`}
+                  } ${
+                    formData.question_list.includes("Sharp abdominal pain") &&
+                    "!bg-green-500"
+                  }`}
                   onClick={() => click("Sharp abdominal pain", true)}
                 >
                   Yes
@@ -116,7 +135,10 @@ function Stage2({
                 <div
                   className={`px-4 py-2 bg-gray-400 text-white rounded-md cursor-pointer ${
                     answeredQuestions.abdominalPain && "opacity-50"
-                  } ${!formData.symptom_list.includes("Sharp abdominal pain") && "!bg-red-500"}`}
+                  } ${
+                    !formData.question_list.includes("Sharp abdominal pain") &&
+                    "!bg-red-500"
+                  }`}
                   onClick={() => click("Sharp abdominal pain", false)}
                 >
                   No
@@ -134,7 +156,10 @@ function Stage2({
                 <div
                   className={`px-4 py-2 bg-gray-400 text-white rounded-md cursor-pointer ${
                     answeredQuestions.dizzy && "opacity-50"
-                  } ${formData.symptom_list.includes("Dizziness") && "!bg-green-500"}`}
+                  } ${
+                    formData.question_list.includes("Dizziness") &&
+                    "!bg-green-500"
+                  }`}
                   onClick={() => click("Dizziness", true)}
                 >
                   Yes
@@ -142,7 +167,10 @@ function Stage2({
                 <div
                   className={`px-4 py-2 bg-gray-400 text-white rounded-md cursor-pointer ${
                     answeredQuestions.dizzy && "opacity-50"
-                  } ${!formData.symptom_list.includes("Dizziness") && "!bg-red-500"}`}
+                  } ${
+                    !formData.question_list.includes("Dizziness") &&
+                    "!bg-red-500"
+                  }`}
                   onClick={() => click("Dizziness", false)}
                 >
                   No
