@@ -32,7 +32,7 @@ function Stage2({
                   className={`px-4 py-2 bg-green-500 text-white rounded-md cursor-pointer ${
                     answeredQuestions.headache && "opacity-50"
                   }`}
-                  onClick={() => click("headache", true)}
+                  onClick={() => click("Headache", true)}
                 >
                   Yes
                 </div>
@@ -40,7 +40,7 @@ function Stage2({
                   className={`px-4 py-2 bg-red-500 text-white rounded-md cursor-pointer ${
                     answeredQuestions.headache && "opacity-50"
                   }`}
-                  onClick={() => click("headache", false)}
+                  onClick={() => click("Headache", false)}
                 >
                   No
                 </div>
@@ -58,7 +58,7 @@ function Stage2({
                   className={`px-4 py-2 bg-green-500 text-white rounded-md cursor-pointer ${
                     answeredQuestions.fever && "opacity-50"
                   }`}
-                  onClick={() => click("fever", true)}
+                  onClick={() => click("Fever", true)}
                 >
                   Yes
                 </div>
@@ -66,7 +66,7 @@ function Stage2({
                   className={`px-4 py-2 bg-red-500 text-white rounded-md cursor-pointer ${
                     answeredQuestions.fever && "opacity-50"
                   }`}
-                  onClick={() => click("fever", false)}
+                  onClick={() => click("Fever", false)}
                 >
                   No
                 </div>
@@ -84,7 +84,7 @@ function Stage2({
                   className={`px-4 py-2 bg-green-500 text-white rounded-md cursor-pointer ${
                     answeredQuestions.fatigue && "opacity-50"
                   }`}
-                  onClick={() => click("fatigue", true)}
+                  onClick={() => click("Fatigue", true)}
                 >
                   Yes
                 </div>
@@ -92,7 +92,7 @@ function Stage2({
                   className={`px-4 py-2 bg-red-500 text-white rounded-md cursor-pointer ${
                     answeredQuestions.fatigue && "opacity-50"
                   }`}
-                  onClick={() => click("fatigue", false)}
+                  onClick={() => click("Fatigue", false)}
                 >
                   No
                 </div>
@@ -110,7 +110,7 @@ function Stage2({
                   className={`px-4 py-2 bg-green-500 text-white rounded-md cursor-pointer ${
                     answeredQuestions.abdominalPain && "opacity-50"
                   }`}
-                  onClick={() => click("abdominalPain", true)}
+                  onClick={() => click("AbdominalPain", true)}
                 >
                   Yes
                 </div>
@@ -136,7 +136,7 @@ function Stage2({
                   className={`px-4 py-2 bg-green-500 text-white rounded-md cursor-pointer ${
                     answeredQuestions.dizzy && "opacity-50"
                   }`}
-                  onClick={() => click("dizzy", true)}
+                  onClick={() => click("Dizziness", true)}
                 >
                   Yes
                 </div>
@@ -144,7 +144,7 @@ function Stage2({
                   className={`px-4 py-2 bg-red-500 text-white rounded-md cursor-pointer ${
                     answeredQuestions.dizzy && "opacity-50"
                   }`}
-                  onClick={() => click("dizzy", false)}
+                  onClick={() => click("Dizziness", false)}
                 >
                   No
                 </div>
