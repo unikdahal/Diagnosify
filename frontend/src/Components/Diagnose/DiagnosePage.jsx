@@ -39,19 +39,24 @@ const DiagnosePage = () => {
   //     }));
   //   }
   // };
-  
   const handleSymptomSelection = (symptom, status) => {
     if (status) {
       if (!formData.symptom_list.includes(symptom)) {
-        setFormData(prevFormData=>({...prevFormData.symptom_list, symptom}));
+        setFormData(prevFormData => ({
+          ...prevFormData,
+          symptom_list: [...prevFormData.symptom_list, symptom]
+        }));
       }
-    }
-    else{
+    } else {
       if (formData.symptom_list.includes(symptom)) {
-        setFormData(prevFormData=>({...prevFormData.symptom_list.filter(item => item !== symptom)}));
+        setFormData(prevFormData => ({
+          ...prevFormData,
+          symptom_list: prevFormData.symptom_list.filter(item => item !== symptom)
+        }));
       }
     }
   };
+  
   const handleNext = () => {
     setStage(stage + 1);
   };
