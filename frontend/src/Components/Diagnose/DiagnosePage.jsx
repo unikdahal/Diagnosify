@@ -6,7 +6,6 @@ import Stage3 from "./Stage3";
 import Stage4 from "./Stage4";
 import arrow from "../../assets/arrow.svg";
 
-
 const DiagnosePage = () => {
   const [stage, setStage] = useState(1);
   const [formData, setFormData] = useState({
@@ -23,7 +22,7 @@ const DiagnosePage = () => {
     fever: false,
     fatigue: false,
     abdominalPain: false,
-    dizzy: false
+    dizzy: false,
   });
 
   // const handleSymptomSelection = (symptom, isSelected) => {
@@ -43,22 +42,23 @@ const DiagnosePage = () => {
   const handleSymptomSelection = (symptom, status) => {
     if (status) {
       if (!formData.symptom_list.includes(symptom)) {
-        setFormData(prevFormData => ({
+        setFormData((prevFormData) => ({
           ...prevFormData,
-          symptom_list: [...prevFormData.symptom_list, symptom]
+          symptom_list: [...prevFormData.symptom_list, symptom],
         }));
-        
       }
     } else {
       if (formData.symptom_list.includes(symptom)) {
-        setFormData(prevFormData => ({
+        setFormData((prevFormData) => ({
           ...prevFormData,
-          symptom_list: prevFormData.symptom_list.filter(item => item !== symptom)
+          symptom_list: prevFormData.symptom_list.filter(
+            (item) => item !== symptom
+          ),
         }));
       }
     }
   };
-  
+
   const handleNext = () => {
     setStage(stage + 1);
   };
@@ -69,6 +69,19 @@ const DiagnosePage = () => {
 
   const handleFormDataChange = (newData) => {
     setFormData({ ...formData, ...newData });
+  };
+
+  const handleTitleClick1 = () => {
+    setStage(1);
+  };
+  const handleTitleClick2 = () => {
+    setStage(2);
+  };
+  const handleTitleClick3 = () => {
+    setStage(3);
+  };
+  const handleTitleClick4 = () => {
+    setStage(4);
   };
 
   return (
@@ -86,19 +99,31 @@ const DiagnosePage = () => {
       {stage === 1 && (
         <>
           <div className="flex w-full justify-between mt-6 px-40">
-            <div className="cursor-pointer px-6 py-2 bg-blue-800 rounded-md text-lg text-white justify-center items-center">
+            <div
+              className="cursor-pointer px-6 py-2 bg-blue-800 rounded-md text-lg text-white justify-center items-center"
+              onClick={handleTitleClick1}
+            >
               Personal Information
             </div>
             <img src={arrow} alt="->" />
-            <div className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center">
+            <div
+              className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center"
+              onClick={handleTitleClick2}
+            >
               Questionnaire
             </div>
             <img src={arrow} alt="->" />
-            <div className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center">
+            <div
+              className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center"
+              onClick={handleTitleClick3}
+            >
               Symptoms Selection
             </div>
             <img src={arrow} alt="->" />
-            <div className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center">
+            <div
+              className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center"
+              onClick={handleTitleClick4}
+            >
               Get your Report
             </div>
           </div>
@@ -112,19 +137,31 @@ const DiagnosePage = () => {
       {stage === 2 && (
         <>
           <div className="flex w-full justify-between mt-6 px-40">
-            <div className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center">
+            <div
+              className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center"
+              onClick={handleTitleClick1}
+            >
               Personal Information
             </div>
             <img src={arrow} alt="->" />
-            <div className="cursor-pointer px-6 py-2 bg-blue-800 rounded-md text-lg text-white justify-center items-center">
+            <div
+              className="cursor-pointer px-6 py-2 bg-blue-800 rounded-md text-lg text-white justify-center items-center"
+              onClick={handleTitleClick2}
+            >
               Questionnaire
             </div>
             <img src={arrow} alt="->" />
-            <div className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center">
+            <div
+              className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center"
+              onClick={handleTitleClick3}
+            >
               Symptoms Selection
             </div>
             <img src={arrow} alt="->" />
-            <div className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center">
+            <div
+              className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center"
+              onClick={handleTitleClick4}
+            >
               Get your Report
             </div>
           </div>
@@ -141,20 +178,31 @@ const DiagnosePage = () => {
       {stage === 3 && (
         <>
           <div className="flex w-full justify-between mt-6 px-40">
-            <div className="cursor-pointer px-6 py-2 opacity-50 text-lg bg-white rounded-lg border border-black justify-center items-center">
+            <div
+              className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center"
+              onClick={handleTitleClick1}
+            >
               Personal Information
             </div>
             <img src={arrow} alt="->" />
-            <div className="cursor-pointer px-6 py-2 opacity-50 text-lg bg-white rounded-lg border border-black justify-center items-center">
+            <div
+              className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center"
+              onClick={handleTitleClick2}
+            >
               Questionnaire
             </div>
             <img src={arrow} alt="->" />
-            <div className="cursor-pointer px-6 py-2 bg-blue-800 rounded-md text-lg text-white justify-center items-center">
+            <div
+              className="cursor-pointer px-6 py-2 bg-blue-800 rounded-md text-lg text-white justify-center items-center"
+              onClick={handleTitleClick3}
+            >
               Symptoms Selection
             </div>
-
             <img src={arrow} alt="->" />
-            <div className="cursor-pointer px-6 py-2 opacity-50 text-lg bg-white rounded-lg border border-black justify-center items-center">
+            <div
+              className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center"
+              onClick={handleTitleClick4}
+            >
               Get your Report
             </div>
           </div>
@@ -169,21 +217,31 @@ const DiagnosePage = () => {
       {stage === 4 && (
         <>
           <div className="flex w-full justify-between mt-6 px-40">
-            <div className="cursor-pointer px-6 py-2 opacity-50 text-lg bg-white rounded-lg border border-black justify-center items-center">
+            <div
+              className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center"
+              onClick={handleTitleClick1}
+            >
               Personal Information
             </div>
             <img src={arrow} alt="->" />
-            <div className="cursor-pointer px-6 py-2 opacity-50 text-lg bg-white rounded-lg border border-black justify-center items-center">
+            <div
+              className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center"
+              onClick={handleTitleClick2}
+            >
               Questionnaire
             </div>
             <img src={arrow} alt="->" />
-            <div className="cursor-pointer px-6 py-2 opacity-50 text-lg bg-white rounded-lg border border-black justify-center items-center">
+            <div
+              className="cursor-pointer px-6 py-2 opacity-50 bg-white rounded-lg border border-black justify-center items-center"
+              onClick={handleTitleClick3}
+            >
               Symptoms Selection
             </div>
-
             <img src={arrow} alt="->" />
-
-            <div className="cursor-pointer px-6 py-2 bg-blue-800 rounded-md text-lg text-white justify-center items-center">
+            <div
+              className="cursor-pointer px-6 py-2 bg-blue-800 rounded-md text-lg text-white justify-center items-center"
+              onClick={handleTitleClick4}
+            >
               Get your Report
             </div>
           </div>
