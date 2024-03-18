@@ -8,7 +8,7 @@ function Stage1({ formData, onFormDataChange, onNext }) {
   };
 
   return (
-    <div className="px-20 mt-20">
+    <div className="px-20 mt-20" >
       <form
         className="flex flex-wrap gap-[17px]"
         onSubmit={(e) => {
