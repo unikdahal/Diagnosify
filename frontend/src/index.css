@@ -11,3 +11,7 @@ body {
     overflow-x: hidden;
     font-family: "Poppins", sans-serif;
 }
+
+* {
+    scrollbar-width: thin;
+}
