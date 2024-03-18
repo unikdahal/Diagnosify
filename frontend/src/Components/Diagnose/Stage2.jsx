@@ -110,7 +110,7 @@ function Stage2({
                   className={`px-4 py-2 bg-green-500 text-white rounded-md cursor-pointer ${
                     answeredQuestions.abdominalPain && "opacity-50"
                   }`}
-                  onClick={() => click("AbdominalPain", true)}
+                  onClick={() => click("Sharp abdominal pain", true)}
                 >
                   Yes
                 </div>
@@ -118,7 +118,7 @@ function Stage2({
                   className={`px-4 py-2 bg-red-500 text-white rounded-md cursor-pointer ${
                     answeredQuestions.abdominalPain && "opacity-50"
                   }`}
-                  onClick={() => click("abdominalPain", false)}
+                  onClick={() => click("Sharp abdominal pain", false)}
                 >
                   No
                 </div>
