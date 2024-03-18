@@ -7,7 +7,7 @@ import img5 from '../assets/team/img5.png';
 
 const Team = ()=>{
     return(
-        <div className="pb-40">
+        <div className="pb-40" id="our-team">
             <div class="text-sky-800 text-6xl font-bold poppins px-20 py-20">Meet Our Team</div>
 
             <div className="flex flex-wrap gap-8 justify-center">
