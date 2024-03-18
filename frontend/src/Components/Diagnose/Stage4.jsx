@@ -1,6 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function Stage4({ formData, onPrevious }) {
+  const [disease, setDisease] = useState(null);
+  const [prevention, setPrevention] = useState([]);
+  useEffect(() => {
+    const { symptom_list } = formData;
+    const reqJson = JSON.stringify({ symptom_list });
+    console.log(reqJson);
+    fetchData(reqJson);
+  }, []);
+  const fetchData = async (reqJson) => {
+    try {
+      const response = await fetch(
+        "http://127.0.0.1:9000/api/v1/symptoms/predict_disease",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: reqJson,
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
+      console.log("Response from server:", data);
+      setDisease(data.disease_names);
+      const preventionString = data.Prevention;
+      const preventionString1 = JSON.stringify(preventionString);
+      const trimmedStr = preventionString1.substring(
+        3,
+        preventionString1.length - 3
+      );
+      console.log("Prevention String1 " + preventionString1);
+      console.log(typeof preventionString1);
+      console.log("Trimmed " + trimmedStr);
+      const arrayFromStr = trimmedStr.split(",");
+      setPrevention(arrayFromStr);
+    } catch (error) {
+      console.error("Error fetching symptoms:", error);
+    }
+  };
+  if (!disease) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="pb-20">
       <div className="flex flex-col p-8 mx-20 my-8  justify-between gap-4 font-medium text-xl bg-white rounded-lg">
@@ -15,13 +61,11 @@ function Stage4({ formData, onPrevious }) {
       <div className="mx-20 bg-white rounded-lg  p-8 flex flex-col gap-8">
         <h1 className="text-xl">
           As per the symptoms you added, the system predicts that you might be
-          suffering from:
+          suffering from :
         </h1>
 
         <div class="my-8 px-10 py-3 w-fit mx-auto border-4 border-red-600 rounded-lg justify-center items-center gap-2">
-          <div class="text-red-600 text-3xl font-semibold ">
-            Seasonal allergies (hay fever)
-          </div>
+          <div class="text-red-600 text-3xl font-semibold ">{disease}</div>
         </div>
 
         <div className="flex p-4 bg-red-200 gap-4 rounded-md items-center">
@@ -34,27 +78,18 @@ function Stage4({ formData, onPrevious }) {
           </h1>
         </div>
 
-        <div className="text-lg">
-          Seasonal allergies, also known as hay fever, are allergic reactions
-          that happen during certain times of the year, usually when outdoor
-          molds release their spores, and trees, grasses, and weeds release tiny
-          pollen particles into the air to fertilize other plants.The immune
-          systems of people who are allergic to mold spores or pollen treat
-          these particles(called allergens) as invaders and release chemicals,
-          including histamine, into the bloodstream to defend against them.It 's
-          the release of these chemicals that causes allergy symptoms.
-        </div>
-
-        <div className="flex flex-col gap-8">
-          <h1 className="text-xl font-bold">
-            The Preventive Measures of Seasonal allergies (hay fever) are:
-          </h1>
-          <ul className="list-disc mx-10">
-            <li>Avoid allergens when possible. </li>
-            <li>use air purifiers.</li>
-            <li>take prescribed antihistamines..</li>
-          </ul>
-        </div>
+        {prevention.length > 1 && (
+          <div className="flex flex-col gap-8">
+            <h1 className="text-xl font-bold">
+              The Preventive Measures of Seasonal allergies (hay fever) are:
+            </h1>
+            <ul className="list-disc mx-10">
+              {prevention.map((item, index) => (
+                <li key={index}>{item.substring(1, item.length - 1)}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );
