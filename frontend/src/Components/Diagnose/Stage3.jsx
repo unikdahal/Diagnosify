@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-function Stage3({ formData, onFormDataChange, onNext, onPrevious }) {
+function Stage3({
+  formData,
+  onFormDataChange,
+  onNext,
+  onPrevious,
+  setFormData,
+}) {
   const [symptoms, setSymptoms] = useState([]);
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -8,6 +14,25 @@ function Stage3({ formData, onFormDataChange, onNext, onPrevious }) {
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    setFormData((prevFormData) => {
+      const updatedSymptomList = [...prevFormData.symptom_list];
+
+      // Add elements from selectedSymptoms that are not already present in symptom_list
+      selectedSymptoms.forEach((symptom) => {
+        if (!updatedSymptomList.includes(symptom)) {
+          updatedSymptomList.push(symptom);
+        }
+      });
+
+      return {
+        ...prevFormData,
+        symptom_list: updatedSymptomList,
+      };
+    });
+    console.log(formData.symptom_list);
+  }, [selectedSymptoms]);
 
   const fetchData = async () => {
     try {
@@ -24,13 +49,13 @@ function Stage3({ formData, onFormDataChange, onNext, onPrevious }) {
 
   const handleSymptomClick = (symptom) => {
     if (selectedSymptoms.includes(symptom)) {
-      setSelectedSymptoms(selectedSymptoms.filter(item => item !== symptom));
+      setSelectedSymptoms(selectedSymptoms.filter((item) => item !== symptom));
     } else {
       setSelectedSymptoms([...selectedSymptoms, symptom]);
     }
   };
 
-  const filteredSymptoms = symptoms.filter(symptom =>
+  const filteredSymptoms = symptoms.filter((symptom) =>
     symptom.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -53,7 +78,11 @@ function Stage3({ formData, onFormDataChange, onNext, onPrevious }) {
               <div
                 key={index}
                 onClick={() => handleSymptomClick(symptom)}
-                className={`h-fit p-2 rounded cursor-pointer ${selectedSymptoms.includes(symptom) ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}
+                className={`h-fit p-2 rounded cursor-pointer ${
+                  selectedSymptoms.includes(symptom)
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-300"
+                }`}
                 style={{ cursor: "pointer" }}
               >
                 {symptom}

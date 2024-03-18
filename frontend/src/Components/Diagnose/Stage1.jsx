@@ -1,5 +1,4 @@
 import React from "react";
-import RedButton from "../RedButton";
 
 function Stage1({ formData, onFormDataChange, onNext }) {
   const handleChange = (e) => {
