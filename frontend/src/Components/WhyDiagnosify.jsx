@@ -6,7 +6,7 @@ import img3 from "../assets/why/img3.png";
 const WhyDiagnosify = () => {
   return (
     <div className="bg-sky-100 pb-20">
-      <div class="pt-20 px-20 text-sky-800 text-6xl font-bold poppins">
+      <div class="pt-20 px-20 text-sky-800 text-6xl font-bold poppins" id="About-Us">
         Why Diagnosify?
       </div>
 

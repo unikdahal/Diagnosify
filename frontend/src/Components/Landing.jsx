@@ -1,5 +1,6 @@
 import Navbar from "./Navbar";
 import img from "../assets/landing.png";
+import { Link } from "react-router-dom";
 const Landing = () => {
   return (
     <div className="bg-blue-800">
@@ -27,9 +28,12 @@ const Landing = () => {
         </div>
       </div>
       <div className="px-20 absolute -mt-8">
-      <button className="bg-red-600 text-white px-10 py-4 rounded-full font-bold border-white border-4 text-xl">Try Diagnosify Now!</button>
-      </div>
-
+        <Link to="./diagnose">
+        <button className="bg-red-600 text-white px-10 py-4 rounded-full font-bold border-white border-4 text-xl">Try Diagnosify Now!</button>
+     
+        </Link>
+      
+        </div>
     
     </div>
   );

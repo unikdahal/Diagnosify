@@ -6,6 +6,7 @@ import Stage3 from "./Stage3";
 import Stage4 from "./Stage4";
 import arrow from "../../assets/arrow.svg";
 
+
 const DiagnosePage = () => {
   const [stage, setStage] = useState(1);
   const [formData, setFormData] = useState({
@@ -46,6 +47,7 @@ const DiagnosePage = () => {
           ...prevFormData,
           symptom_list: [...prevFormData.symptom_list, symptom]
         }));
+        
       }
     } else {
       if (formData.symptom_list.includes(symptom)) {
