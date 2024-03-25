@@ -19,7 +19,7 @@ const predictDisease = async (req, res) => {
     const symptoms = JSON.stringify(symptom);
     console.log("Symptoms JSON:", symptoms);
 
-    const url = "http://localhost:8000/predict_disease";
+    const url = "https://unikdahal-diseaseprediction.hf.space/predict_disease";
     const options = {
       method: "POST",
       headers: {
@@ -32,9 +32,12 @@ const predictDisease = async (req, res) => {
     console.log("API Response:", data);
 
     const { disease_names } = data;
+    let Prevention = [];
     const disease = await Disease.find({ Disease: disease_names });
     console.log("Retrieved Disease:", disease);
-    const { Prevention } = disease[0];
+    if (disease !== null && disease.length > 0) {
+      Prevention = disease[0].Prevention;
+    }
 
     res.status(200).json({ disease_names, Prevention });
   } catch (error) {
