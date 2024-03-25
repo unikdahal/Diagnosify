@@ -13,7 +13,7 @@ function Stage4({ formData, onPrevious }) {
   const fetchData = async (reqJson) => {
     try {
       const response = await fetch(
-        "http://127.0.0.1:9000/api/v1/symptoms/predict_disease",
+        "https://diagnosify-backend.vercel.app/api/v1/symptoms/predict_disease",
         {
           method: "POST",
           headers: {
