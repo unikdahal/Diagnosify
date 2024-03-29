@@ -82,7 +82,7 @@ function Stage4({ formData, onPrevious }) {
         {prevention.length > 1 && (
           <div className="flex flex-col gap-8">
             <h1 className="text-xl font-bold">
-              The Preventive Measures of Seasonal allergies (hay fever) are:
+              The Preventive Measures of {disease} are:
             </h1>
             <ul className="list-disc mx-10">
               {prevention.map((item, index) => (
